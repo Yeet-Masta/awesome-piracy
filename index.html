@@ -34,7 +34,7 @@
 	<main></main>
 
 	<!-- JavaScript Library to Convert Markdown into HTML -->
-	<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+	<script src="marked.min.js"></script>
 	<script>
 		// Basic Settings
 		const defaultTheme = 'darkly';
@@ -42,10 +42,10 @@
 		// Update last one only when https://www.jsdelivr.com/package/npm/bootswatch is updated.
 
 		// Get the markdown file, convert to HTML & put inside the main tag
-		fetch( 'https://raw.githubusercontent.com/Shakil-Shahadat/awesome-piracy/main/Readme.md' )
+		fetch( 'http://localhost/Readme.md' )
 			.then( response => response.text() )
 			.then( data => {
-				data = data.replaceAll( ':star2:', '<img src="https://github.githubassets.com/images/icons/emoji/unicode/1f31f.png?v8" width="20">' );
+				data = data.replaceAll( ':star2:', '<img src="images/1f31f.png?v8" width="20">' );
 				document.querySelector( 'main' ).innerHTML = marked.parse( data );
 			})
 			.catch( error => console.error( 'Error:', error ) );
@@ -54,7 +54,7 @@
 		function changeCSS( theme )
 		{
 			document.querySelector( 'link' ).href
-					= `https://cdn.jsdelivr.net/npm/bootswatch@${bootswatchVersion}/dist/${theme}/bootstrap.min.css`;
+					= `http://localhost/bootstrap.min.css`;
 		}
 
 		// Set the default theme
